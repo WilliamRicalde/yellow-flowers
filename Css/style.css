@@ -1,3 +1,9 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     font-family: 'Inclusive Sans', sans-serif;
@@ -26,6 +32,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
 }

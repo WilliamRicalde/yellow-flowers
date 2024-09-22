@@ -11,11 +11,12 @@ window.addEventListener('focus', () => {
 
 let h1 = document.getElementById("Titulo");
 let Boton1 = document.getElementById("B1");
-Boton1.addEventListener('click', function() {
+
+document.getElementById("B1").addEventListener('click', function() {
     const ContenedorBotones = document.querySelector(".Con");
-    document.querySelector(".Texto").style.display = "block";
     ContenedorBotones.style.display = "none";
-    DibujarFlor(500, 100, 6, 30, 100, 200);
+    document.querySelector(".Texto").style.display = "block";
+    DibujarFlor(200, 100, 6, 30, 100, 200);
     h1.remove();
 })
 
@@ -54,7 +55,7 @@ function DibujarPetalo(x, y, RadioX, scala, Rotacion, color, pasos) {
         ctx.fill();
         ctx.stroke();
       }
-    
+
       ctx.restore();
 }
 
@@ -94,14 +95,14 @@ function DibujarFlor(x, y, NumeroPetalos, RadioXPetalo, RadioYPetalo, AltoTrazo)
   DibujarTallo();
 
     const AnguloIncrement = (Math.PI * 2) / NumeroPetalos;
-  
+
     let contadorPetalos = 0;
     function dibujarSiguientePetalo() {
         if (contadorPetalos <= NumeroPetalos) {
           const Angulo = contadorPetalos * AnguloIncrement;
           DibujarPetalo(x, y, RadioXPetalo, 2, Angulo, 'yellow', 100);
           contadorPetalos++;
-          setTimeout(dibujarSiguientePetalo, 1000); 
+          setTimeout(dibujarSiguientePetalo, 1000);
         }
         // Dibuja el centro de la flor
         ctx.beginPath();
@@ -128,12 +129,12 @@ function DibujarFlorSinTallo(x, y, NumeroPetalos, RadioXPetalo, RadioYPetalo, Al
       ctx.stroke();
       NuevaY += AltoTallo;
       setTimeout(DibujarTallo, 100);
-    } 
+    }
   };
   DibujarTallo();
 
     const AnguloIncrement = (Math.PI * 2) / NumeroPetalos;
-  
+
     // Dibuja los pétalos
     let contadorPetalos = 0;
     function dibujarSiguientePetalo() {
@@ -141,7 +142,7 @@ function DibujarFlorSinTallo(x, y, NumeroPetalos, RadioXPetalo, RadioYPetalo, Al
           const Angulo = contadorPetalos * AnguloIncrement;
           DibujarPetalo(x, y, RadioXPetalo, 2, Angulo, 'yellow', 100);
           contadorPetalos++;
-          setTimeout(dibujarSiguientePetalo, 1000); 
+          setTimeout(dibujarSiguientePetalo, 1000);
         }
         // Dibuja el centro de la flor
         ctx.beginPath();
@@ -166,6 +167,6 @@ function CrearVarias() {
         const x = espacioX * columna + espacioX / 2;
         const y = espacioY * fila + espacioY / 2;
 
-        DibujarFlorSinTallo(x, y, 8, 30, 80, TamañoFlor);
+        DibujarFlorSinTallo(x, y, 8, 20, 80, TamañoFlor);
     }
 }
